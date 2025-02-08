@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head xmlns:th="http://www.thymeleaf.org">
+		    <meta charset="UTF-8">
+		    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+			<link rel="stylesheet" href="/estilos.css">
+		    <title>Anuncios</title>
+		</head>
+<body>
+	<h1>Segunda Vida</h1>
+    <h2>Anuncios</h2>
+	<div class="container">
+	    <ul>
+	        <li th:each="anuncio, iter : ${misAnuncios}"><!-- Iteración de los anuncios usando Thymeleaf -->
+				
+	            <h2 th:text="${anuncio.asunto}"></h2><!-- Mostrar el asunto del anuncio -->
+	            <p><strong>Nombre:</strong> <span th:text="${anuncio.nombre}"></span></p>
+	            <p><strong>Teléfono:</strong> <span th:text="${anuncio.telefono}"></span></p>
+	            <p><strong>Correo:</strong> <span th:text="${anuncio.correo}"></span></p>
+	            <p><strong>Contenido:</strong> <span th:text="${anuncio.contenido}"></span></p>
+	            <p><strong>Precio:</strong> <span th:text="${anuncio.precio}"></span> €</p>
+	            
+	            <!--Boton Eliminar-->
+	            <form action="/eliminar" method="post" style="display:inline;">
+	                <input type="hidden" name="id" th:value="${anuncio.id}">
+	                <button type="submit">Eliminar</button>
+	            </form>
+
+	            <!--Boton Modificar-->
+				<form th:action="@{/modificar/{id}(id=${anuncio.id})}" method="get" style="display:inline;">
+				    <button type="submit">Modificar</button>
+				</form>
+
+	        </li>
+	    </ul>
+	</div>
+    <a href="/">Volver al inicio</a>
+</body>
+</html>

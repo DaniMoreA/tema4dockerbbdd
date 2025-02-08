@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head xmlns:th="http://www.thymeleaf.org">
+	    <meta charset="UTF-8">
+	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="/estilos.css">
+	    <title>Inicio</title>
+	</head>
+<body>
+    <h1>Segunda Vida</h1>
+    <h2>Bienvenido</h2>
+
+	
+	<a th:if="${mostrarMisAnuncios}" href="/mis-anuncios">Ver mis anuncios</a><br><!-- Enlace para ver los anuncios, visible si 'mostrarMisAnuncios' es verdadero -->
+
+    <a href="/nuevo">Nuevo anuncio</a></li> <!-- Enlace para crear un nuevo anuncio -->
+
+</body>
+</html>

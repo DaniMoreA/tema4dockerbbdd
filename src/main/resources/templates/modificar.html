@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/estilos.css">
+        <title>Modificar Anuncio</title>
+    </head>
+    <body>
+        <h1>Segunda Vida</h1>
+        <h2>Modificar Anuncio</h2>
+        <div class="container">
+            <form action="/modificar" method="post">
+                <input type="hidden" name="id" th:value="${anuncio.id}">
+
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" th:value="${anuncio.nombre}" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="text" id="telefono" name="telefono" th:value="${anuncio.telefono}" pattern="^\d{9}$" title="El teléfono debe contener exactamente 9 dígitos." required>
+
+                <label for="correo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" th:value="${anuncio.correo}" required>
+
+                <label for="asunto">Asunto:</label>
+                <input type="text" id="asunto" name="asunto" th:value="${anuncio.asunto}" required>
+
+                <label for="contenido">Contenido:</label>
+                <textarea id="contenido" name="contenido" rows="4" th:value="${anuncio.contenido}" required></textarea>
+
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" name="precio" th:value="${anuncio.precio}" step="0.01" required>
+
+                <button type="submit">Guardar Cambios</button>
+            </form>
+        </div>
+        <a href="/mis-anuncios">Volver a Mis Anuncios</a>
+    </body>
+</html>
